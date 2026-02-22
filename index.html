@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrei Rosu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -28,7 +28,6 @@
       cursor: none;
     }
 
-    /* Custom cursor */
     .cursor {
       position: fixed;
       width: 10px; height: 10px;
@@ -53,7 +52,6 @@
     body:has(a:hover) .cursor { width: 16px; height: 16px; }
     body:has(a:hover) .cursor-ring { width: 50px; height: 50px; border-color: var(--accent); }
 
-    /* Grid lines */
     body::after {
       content: '';
       position: fixed;
@@ -66,7 +64,6 @@
       z-index: 0;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -97,7 +94,6 @@
     }
     .nav-links a:hover { color: var(--text); }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -170,7 +166,6 @@
     .btn-accent { background: var(--accent); color: #000; border-color: var(--accent); }
     .btn-accent:hover { background: #fff; border-color: #fff; color: #000; }
 
-    /* scroll line */
     .scroll-line {
       position: absolute;
       bottom: 40px; left: 50%;
@@ -192,7 +187,6 @@
       0%, 100% { opacity: 1; } 50% { opacity: 0.2; }
     }
 
-    /* ── MAIN CONTENT ── */
     .content {
       position: relative;
       z-index: 1;
@@ -201,7 +195,6 @@
       padding: 100px 60px 80px;
     }
 
-    /* section label */
     .section-label {
       display: flex;
       align-items: center;
@@ -222,7 +215,12 @@
       background: var(--border);
     }
 
-    /* ── PROJECT CARD ── */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     .project-card {
       border: 1px solid var(--border);
       padding: 36px;
@@ -291,7 +289,6 @@
     .proj-link svg { transition: transform 0.2s; }
     .proj-link:hover svg { transform: translate(2px, -2px); }
 
-    /* ── SKILLS ── */
     .skills-wrap { margin-top: 64px; }
     .skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill {
@@ -307,7 +304,6 @@
     }
     .skill:hover { color: var(--accent); border-color: rgba(200,255,0,0.3); }
 
-    /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
       border-top: 1px solid var(--border);
@@ -320,21 +316,20 @@
       color: var(--muted);
       letter-spacing: 0.08em;
     }
-    footer a { color: var(--muted); transition: color 0.2s; cursor: none; }
+    footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; cursor: none; }
     footer a:hover { color: var(--accent); }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     .reveal {
-      opacity: 0; transform: translateY(30px);
+      opacity: 0;
+      transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.23,1,0.32,1);
     }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav { padding: 20px 24px; }
       .nav-links { display: none; }
@@ -356,11 +351,10 @@
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#e4858a809691ca858a808dd5d3a48389858d88ca878b89">Contact</a></li>
+      <li><a href="mailto:andru.andi17@gmail.com" target="_blank">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-tag">Tech Specialist &amp; Electronics Enthusiast</div>
     <h1>
@@ -372,7 +366,7 @@
         Passionate about all things tech — from building and troubleshooting custom PCs to diagnosing and breathing new life into consumer electronics. Experienced in hardware, software, and everything in between. Based in Coslada, Madrid.
       </p>
       <div class="hero-links">
-        <a href="/cdn-cgi/l/email-protection#5f3e313b2d2a713e313b366e681f38323e3633713c3032" class="btn btn-accent">Email</a>
+        <a href="mailto:andru.andi17@gmail.com" class="btn btn-accent">Email</a>
         <a href="#projects" class="btn">Projects ↓</a>
       </div>
     </div>
@@ -382,66 +376,71 @@
     </div>
   </section>
 
-  <!-- CONTENT -->
   <div class="content">
 
-    <!-- PROJECTS -->
     <div id="projects">
       <div class="section-label reveal"><span>Featured Projects</span></div>
+      <div class="projects-list">
 
-      <div class="project-card reveal">
-        <div>
-          <div class="proj-name">noted.</div>
-          <p class="proj-desc">
-            A minimal, elegant note-taking extension that saves your thoughts with the context of where they came from. Automatically links notes to websites with a clean interface, tags, instant search, and offline support. 5.0★ rated with 75+ users.
-          </p>
-          <div class="tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">Chrome Extension</span>
-            <span class="tag">Productivity</span>
+        <div class="project-card reveal">
+          <div>
+            <div class="proj-name">noted.</div>
+            <p class="proj-desc">
+              A minimal, elegant note-taking extension that saves your thoughts with the context of where they came from. Automatically links notes to websites with a clean interface, tags, instant search, and offline support. 5.0★ rated with 75+ users.
+            </p>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Chrome Extension</span>
+              <span class="tag">Productivity</span>
+            </div>
           </div>
+          <a href="https://chromewebstore.google.com/detail/noted-contextual-note-tak/bmaokolehfjcoabndkbkfpglihcabpen" target="_blank" class="proj-link">
+            Chrome Web Store
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
         </div>
-        <a href="https://chromewebstore.google.com/detail/noted-contextual-note-tak/bmaokolehfjcoabndkbkfpglihcabpen" target="_blank" class="proj-link">
-          View on Chrome Web Store
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-        </a>
-      </div>
 
-      <div class="project-card reveal" style="margin-top:12px;">
-        <div>
-          <div class="proj-name">Adventure Time:<br>A Messed Up Fangame</div>
-          <p class="proj-desc">
-            A 2D adventure game inspired by Adventure Time, featuring exploration mechanics, interactive elements, and basic inventory management. Built with GameMaker Language.
-          </p>
-          <div class="tags">
-            <span class="tag">GML</span>
-            <span class="tag">GameMaker</span>
+        <div class="project-card reveal">
+          <div>
+            <div class="proj-name">Adventure Time:<br>A Messed Up Fangame</div>
+            <p class="proj-desc">
+              A 2D adventure game inspired by Adventure Time, featuring exploration mechanics, interactive elements, and basic inventory management. Built with GameMaker Language.
+            </p>
+            <div class="tags">
+              <span class="tag">GML</span>
+              <span class="tag">GameMaker</span>
+            </div>
           </div>
+          <a href="https://lemoncup.itch.io/adventure-time-a-messed-up-fangame" target="_blank" class="proj-link">
+            View Project
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
         </div>
-        <a href="https://lemoncup.itch.io/adventure-time-a-messed-up-fangame" target="_blank" class="proj-link">
-          View Project
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-        </a>
+
       </div>
     </div>
 
-    <!-- SKILLS -->
     <div id="skills" class="skills-wrap">
       <div class="section-label reveal"><span>Skills</span></div>
       <div class="skills-list reveal">
-        <span class="skill">PC Building</span>
+        <span class="skill">Python</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">Flask</span>
+        <span class="skill">Chrome Web Store</span>
+        <span class="skill">Software Architecture</span>
         <span class="skill">Hardware Troubleshooting</span>
-        <span class="skill">Software Debugging</span>
         <span class="skill">Consumer Electronics</span>
         <span class="skill">Component Diagnosis</span>
+        <span class="skill">Soldering</span>
         <span class="skill">Windows</span>
         <span class="skill">Linux</span>
+        <span class="skill">MacOS</span>
         <span class="skill">AutoCAD</span>
-        <span class="skill">Soldering</span>
-        <span class="skill">Database Management</span>
+        <span class="skill">Visual Studio Code</span>
+        <span class="skill">PyCharm</span>
         <span class="skill">Customer Service</span>
-        <span class="skill">Microsoft Office</span>
-        <span class="skill">Technical Drawing</span>
       </div>
     </div>
 
@@ -449,11 +448,10 @@
 
   <footer>
     <span>© 2024 Andrei Rosu. All rights reserved.</span>
-    <a href="/cdn-cgi/l/email-protection#8beae5eff9fea5eae5efe2babccbece6eae2e7a5e8e4e6"><span class="__cf_email__" data-cfemail="b2d3dcd6c0c79cd3dcd6db8385f2d5dfd3dbde9cd1dddf">[email&#160;protected]</span></a>
+    <a href="mailto:andru.andi17@gmail.com">andru.andi17@gmail.com</a>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Cursor
+  <script>
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -470,4 +468,16 @@
       requestAnimationFrame(animRing);
     })();
 
-    // Scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
