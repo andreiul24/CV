@@ -64,6 +64,7 @@
       z-index: 0;
     }
 
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -94,6 +95,7 @@
     }
     .nav-links a:hover { color: var(--text); }
 
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -103,7 +105,6 @@
       position: relative;
       z-index: 1;
     }
-
     .hero-tag {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
@@ -114,7 +115,6 @@
       opacity: 0;
       animation: fadeUp 0.8s ease 0.2s forwards;
     }
-
     .hero h1 {
       font-size: clamp(52px, 10vw, 130px);
       font-weight: 800;
@@ -128,7 +128,6 @@
       -webkit-text-stroke: 1px rgba(255,255,255,0.2);
       color: transparent;
     }
-
     .hero-bottom {
       display: flex;
       justify-content: space-between;
@@ -183,10 +182,9 @@
       background: linear-gradient(to bottom, var(--accent), transparent);
       animation: scrollPulse 2s ease-in-out infinite 1.5s;
     }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 1; } 50% { opacity: 0.2; }
-    }
+    @keyframes scrollPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
+    /* CONTENT */
     .content {
       position: relative;
       z-index: 1;
@@ -210,9 +208,7 @@
       white-space: nowrap;
     }
     .section-label::after {
-      content: '';
-      flex: 1; height: 1px;
-      background: var(--border);
+      content: ''; flex: 1; height: 1px; background: var(--border);
     }
 
     .projects-list {
@@ -221,6 +217,7 @@
       gap: 12px;
     }
 
+    /* PROJECT CARD */
     .project-card {
       border: 1px solid var(--border);
       padding: 36px;
@@ -244,6 +241,17 @@
     }
     .project-card:hover { border-color: rgba(200,255,0,0.2); background: #141414; }
     .project-card:hover::before { transform: scaleY(1); }
+
+    .proj-img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      display: block;
+    }
 
     .proj-name {
       font-size: 22px;
@@ -289,6 +297,7 @@
     .proj-link svg { transition: transform 0.2s; }
     .proj-link:hover svg { transform: translate(2px, -2px); }
 
+    /* SKILLS */
     .skills-wrap { margin-top: 64px; }
     .skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill {
@@ -304,6 +313,7 @@
     }
     .skill:hover { color: var(--accent); border-color: rgba(200,255,0,0.3); }
 
+    /* FOOTER */
     footer {
       position: relative; z-index: 1;
       border-top: 1px solid var(--border);
@@ -323,12 +333,6 @@
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.23,1,0.32,1);
-    }
-    .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 768px) {
       nav { padding: 20px 24px; }
@@ -351,7 +355,7 @@
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="mailto:andru.andi17@gmail.com" target="_blank">Contact</a></li>
+      <li><a href="mailto:andru.andi17@gmail.com">Contact</a></li>
     </ul>
   </nav>
 
@@ -379,11 +383,12 @@
   <div class="content">
 
     <div id="projects">
-      <div class="section-label reveal"><span>Featured Projects</span></div>
+      <div class="section-label"><span>Featured Projects</span></div>
       <div class="projects-list">
 
-        <div class="project-card reveal">
+        <div class="project-card">
           <div>
+            <img src="noted.png" alt="noted. preview" class="proj-img" />
             <div class="proj-name">noted.</div>
             <p class="proj-desc">
               A minimal, elegant note-taking extension that saves your thoughts with the context of where they came from. Automatically links notes to websites with a clean interface, tags, instant search, and offline support. 5.0★ rated with 75+ users.
@@ -400,8 +405,9 @@
           </a>
         </div>
 
-        <div class="project-card reveal">
+        <div class="project-card">
           <div>
+            <img src="adventuretime.png" alt="Adventure Time Fangame preview" class="proj-img" />
             <div class="proj-name">Adventure Time:<br>A Messed Up Fangame</div>
             <p class="proj-desc">
               A 2D adventure game inspired by Adventure Time, featuring exploration mechanics, interactive elements, and basic inventory management. Built with GameMaker Language.
@@ -421,8 +427,8 @@
     </div>
 
     <div id="skills" class="skills-wrap">
-      <div class="section-label reveal"><span>Skills</span></div>
-      <div class="skills-list reveal">
+      <div class="section-label"><span>Skills</span></div>
+      <div class="skills-list">
         <span class="skill">Python</span>
         <span class="skill">JavaScript</span>
         <span class="skill">HTML</span>
@@ -467,17 +473,6 @@
       ring.style.top = ry + 'px';
       requestAnimationFrame(animRing);
     })();
-
-    const reveals = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
