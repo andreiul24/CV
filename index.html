@@ -356,23 +356,23 @@
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="mailto:andru.andi17@gmail.com">Contact</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#e4858a809691ca858a808dd5d3a48389858d88ca878b89">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tag">Electronics Technician &amp; Tech Specialist</div>
+    <div class="hero-tag">Tech Specialist &amp; Electronics Enthusiast</div>
     <h1>
       Andrei<br>
       <span class="outline">Rosu</span>
     </h1>
     <div class="hero-bottom">
       <p class="hero-desc">
-        Hands-on electronics technician with experience in hardware repair, POS systems, and customer-facing technical support. Passionate about gaming and technology, based in Coslada, Madrid.
+        Passionate about all things tech — from building and troubleshooting custom PCs to diagnosing and breathing new life into consumer electronics. Experienced in hardware, software, and everything in between. Based in Coslada, Madrid.
       </p>
       <div class="hero-links">
-        <a href="mailto:andru.andi17@gmail.com" class="btn btn-accent">Email</a>
+        <a href="/cdn-cgi/l/email-protection#5f3e313b2d2a713e313b366e681f38323e3633713c3032" class="btn btn-accent">Email</a>
         <a href="#projects" class="btn">Projects ↓</a>
       </div>
     </div>
@@ -390,6 +390,24 @@
       <div class="section-label reveal"><span>Featured Projects</span></div>
 
       <div class="project-card reveal">
+        <div>
+          <div class="proj-name">noted.</div>
+          <p class="proj-desc">
+            A minimal, elegant note-taking extension that saves your thoughts with the context of where they came from. Automatically links notes to websites with a clean interface, tags, instant search, and offline support. 5.0★ rated with 75+ users.
+          </p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Chrome Extension</span>
+            <span class="tag">Productivity</span>
+          </div>
+        </div>
+        <a href="https://chromewebstore.google.com/detail/noted-contextual-note-tak/bmaokolehfjcoabndkbkfpglihcabpen" target="_blank" class="proj-link">
+          View on Chrome Web Store
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card reveal" style="margin-top:12px;">
         <div>
           <div class="proj-name">Adventure Time:<br>A Messed Up Fangame</div>
           <p class="proj-desc">
@@ -411,18 +429,18 @@
     <div id="skills" class="skills-wrap">
       <div class="section-label reveal"><span>Skills</span></div>
       <div class="skills-list reveal">
-        <span class="skill">Hardware Repair</span>
-        <span class="skill">AutoCAD</span>
+        <span class="skill">PC Building</span>
+        <span class="skill">Hardware Troubleshooting</span>
+        <span class="skill">Software Debugging</span>
+        <span class="skill">Consumer Electronics</span>
+        <span class="skill">Component Diagnosis</span>
         <span class="skill">Windows</span>
         <span class="skill">Linux</span>
-        <span class="skill">POS Systems</span>
-        <span class="skill">Electronics</span>
+        <span class="skill">AutoCAD</span>
         <span class="skill">Soldering</span>
-        <span class="skill">Software Installation</span>
         <span class="skill">Database Management</span>
-        <span class="skill">Inventory Systems</span>
-        <span class="skill">Microsoft Office</span>
         <span class="skill">Customer Service</span>
+        <span class="skill">Microsoft Office</span>
         <span class="skill">Technical Drawing</span>
       </div>
     </div>
@@ -431,10 +449,10 @@
 
   <footer>
     <span>© 2024 Andrei Rosu. All rights reserved.</span>
-    <a href="mailto:andru.andi17@gmail.com">andru.andi17@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#8beae5eff9fea5eae5efe2babccbece6eae2e7a5e8e4e6"><span class="__cf_email__" data-cfemail="b2d3dcd6c0c79cd3dcd6db8385f2d5dfd3dbde9cd1dddf">[email&#160;protected]</span></a>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
@@ -452,12 +470,4 @@
       requestAnimationFrame(animRing);
     })();
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => obs.observe(el));
-  </script>
-</body>
-</html>
+    // Scroll
